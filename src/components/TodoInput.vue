@@ -1,0 +1,52 @@
+<template>
+  <div class="imputBox shadow">
+      <input type="text" v-model="newTodoItem">
+      <span class="addContainer">
+        <i class="fas fa-plus-circle addBtn" v-on:click="addTodo"></i>      
+      </span>
+  </div>
+</template>
+
+<script>
+export default {
+  data:function(){
+    return {
+      newTodoItem: ""
+    }
+  },
+  methods:{
+    addTodo:  function(){
+      localStorage.setItem(this.newTodoItem, this.newTodoItem)
+      this.clearInput();
+    },
+    clearInput:function(){
+      this.newTodoItem = "";
+    }
+  }
+}
+</script>
+
+<style scoped>
+  
+  .inputBox {
+    background: whitesmoke;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+  }
+  .inputBox input {
+    border-style: none;
+    font-size: 0.9rem;
+  }
+  .addContainer{
+    float: right;
+    background: linear-gradient(to right, #6478FB, #8763Fb);
+    display:block;
+    width: 3rem;
+    border-radius: 0 5px 5px 0;
+  }
+  .addBtn{
+    color: whitesmoke;
+    vertical-align: middle;
+  }
+</style>
