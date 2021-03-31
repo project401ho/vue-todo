@@ -30,7 +30,7 @@ body {
 input {
   border-style: groove;
   width: 80%;
-  height: 80%;
+  height: 100%;
 }
 button {
   border-style: groove;
