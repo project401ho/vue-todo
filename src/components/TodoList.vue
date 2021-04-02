@@ -1,43 +1,26 @@
 <template>
   <div>
-      <ul>
-        <li v-bind:key="item.item" v-for="(item,index) in todoItems" class="shadow">
-          <i class=" checkBtn far fa-check-square" v-bind:class="{checkBtnCompleted: item.completed}" v-on:click="toggleComplete(item, index)"></i>
+    <transition-group name="list" tag="ul">
+        <li v-bind:class="{boxCompleted: item.completed}" v-bind:key="item.item" v-for="(item,index) in propsdata" class="shadow">
+          <i class="fas fa-check checkBtn" v-bind:class="{checkBtnCompleted: item.completed}" v-on:click="toggleComplete(item, index)"></i>
           <span v-bind:class="{textCompleted: item.completed}">{{item.item}}</span>
           <span class='removeBtn' v-on:click="removeTodo(item, index)">
             <i class="fas fa-trash"></i>
           </span>
         </li>
-      </ul>
+    </transition-group>
   </div>
 </template>
 
 <script>
 export default {
-  data: function(){
-    return{
-      todoItems: []
-    }
-  },
-  created: function(){
-    if (localStorage.length > 0){
-      for(let i = 0; i < localStorage.length; i++){
-        if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-          
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))))         
-        }
-      }
-    }
-  },
+  props: ['propsdata'],  
   methods: {
     removeTodo : function(item, index){
-      this.todoItems.splice(index,1);
-      localStorage.removeItem(item.item)
-
+      this.$emit("removeItem",item, index)
     },
-    toggleComplete: function(item){
-      item.completed = !item.completed;
-      localStorage.setItem(item.item, JSON.stringify(item));
+    toggleComplete: function(item, index){
+      this.$emit("toggleCompelete", item, index)
     }
   }
   
@@ -61,6 +44,12 @@ li {
   background: white;
   border-radius: 5px;
 }
+.boxCompleted{
+    background-color: gray;
+}
+.checkmark{
+  vertical-align: middle;
+}
 .checkBtn {
   line-height: 45px;
   color: #62acde;
@@ -76,5 +65,16 @@ li {
 .removeBtn {
   margin-left: auto;
   color: #de4343;
+}
+
+/*List Transition*/
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s ease;
+}
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>
