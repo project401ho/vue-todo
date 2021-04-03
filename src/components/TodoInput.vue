@@ -5,18 +5,11 @@
       <i class="addBtn fas fa-plus" aria-hidden="true"></i>
     </span>
     <Modal v-if="showModal" @close="showModal = false">
-      <!--
-        you can use custom content here to overwrite
-        default content
-      -->
       <h3 slot="header">
         경고!
         <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
       </h3>
-
-      <p slot="body">무언가를 입력하세요.</p>
-
-      
+      <p slot="body">무언가를 입력하세요.</p>      
     </Modal>
   </div>
 </template>
@@ -25,16 +18,16 @@
 import Modal from "./common/Modal.vue"
 export default {
   components:{
-    "Modal":Modal
+    Modal
   },
-  data:function(){
+  data(){
     return {
       newTodoItem: "",
       showModal: false,
     }
   },
   methods:{
-    addTodo:  function(){
+    addTodo(){
       if(this.newTodoItem !== ""){
         this.$emit('addTodoItem', this.newTodoItem)
         this.clearInput();  
@@ -43,7 +36,7 @@ export default {
         this.showModal = !this.showModal;
       }      
     },
-    clearInput:function(){
+    clearInput(){
       this.newTodoItem = "";
     }
   }

@@ -16,10 +16,10 @@
 export default {
   props: ['propsdata'],  
   methods: {
-    removeTodo : function(item, index){
+    removeTodo (item, index){
       this.$emit("removeItem",item, index)
     },
-    toggleComplete: function(item, index){
+    toggleComplete(item, index){
       this.$emit("toggleCompelete", item, index)
     }
   }
@@ -42,7 +42,6 @@ li {
   margin: 0.5rem 0;
   padding: 0 0.9rem;
   background: white;
-  border-radius: 5px;
 }
 .boxCompleted{
     background-color: gray;
