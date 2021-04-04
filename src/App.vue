@@ -5,7 +5,7 @@
     <TodoList 
       v-on:removeItem="removeItem" 
       v-on:toggleCompelete = "toggleCompelete" 
-      v-bind:propsdata="todoItems">
+    >
     </TodoList>
     <TodoFooter v-on:clearAll="clearAll"></TodoFooter>
   </div>
@@ -51,15 +51,7 @@ export default {
     TodoFooter
   },
 
-  created (){
-    if (localStorage.length > 0){
-      for(let i = 0; i < localStorage.length; i++){
-        if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){          
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))))         
-        }
-      }
-    }
-  },  
+      
 }
 </script>
 
