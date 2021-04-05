@@ -20,8 +20,24 @@ export const store = new Vuex.Store({
     state:{
         todoItems: storage.fetch()
     },
-    //this.$store.commit('mutation name')
     mutations:{
+        addOneItem(state, newtodoitem){
+            const obj = {completed: false, item: newtodoitem}
+            localStorage.setItem(newtodoitem, JSON.stringify(obj))
+            state.todoItems.push(obj);
+        },
+        removeItem (state, payload) {
+            state.todoItems.splice(payload.index,1);
+            localStorage.removeItem(payload.item.item)
+        },
+        toggleCompelete (state, payload) {
+            state.todoItems[payload.index].completed = !state.todoItems[payload.index].completed
+            localStorage.setItem(payload.item.item, JSON.stringify(payload.item));
+        },
+        clearAll (state) {
+            localStorage.clear();
+            state.todoItems = [];
+        }
 
     }
 });
