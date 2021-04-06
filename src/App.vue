@@ -4,6 +4,7 @@
     <TodoInput></TodoInput>
     <TodoList></TodoList>
     <TodoFooter></TodoFooter>
+    <!-- <Demo></Demo> -->
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import TodoHeader from './components/TodoHeader.vue'
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
+// import Demo from './components/Demo.vue'
 
 export default {
   
@@ -19,7 +21,8 @@ export default {
     TodoHeader,
     TodoInput,
     TodoList,
-    TodoFooter
+    TodoFooter,
+    // Demo
   },
 
       
