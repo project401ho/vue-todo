@@ -14,32 +14,7 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
-  // data () {
-  //   return{
-  //     todoItems : []
-  //   }
-  // },
   
-  // methods:{// = mutations
-    // addOneItem (todoitem){
-    //   const obj = {completed: false, item: todoitem}
-    //   localStorage.setItem(todoitem, JSON.stringify(obj))
-    //   this.todoItems.push(obj);
-    // },
-    // removeItem (item, index) {
-    //   this.todoItems.splice(index,1);
-    //   localStorage.removeItem(item.item)
-    // },
-    // toggleCompelete (item, index) {
-    //   this.todoItems[index].completed = !this.todoItems[index].completed
-    //   localStorage.setItem(item.item, JSON.stringify(item));
-    // },
-    // clearAll () {
-    //   localStorage.clear();
-    //   this.todoItems = [];
-    // }  
-  // },
-
   components: {    
     TodoHeader,
     TodoInput,
