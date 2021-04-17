@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: 'TodoApp',
+    publicPath: 'vue-todo',
     outputDir: 'docs'
 }
