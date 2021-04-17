@@ -18,18 +18,14 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
   methods: {
     ...mapMutations({
-      //removeTodo:"removeItem({item, index})"
       removeTodo:"removeItem",
       toggleComplete: "toggleComplete",
     }),
   },
   computed: {
-    // todoItems(){
-    //   return this.$store.getters.fetchedTodoItems;
-    // }
-    // ...mapGetters(['fetchedTodoItems'])
     ...mapGetters({
       getTodoItems: "fetchedTodoItems"
+      
     })
   }
   

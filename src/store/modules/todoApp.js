@@ -1,5 +1,6 @@
+
 const storage = {
-    fetch() {
+    initiate() {
         const arr = [];
         if (localStorage.length > 0){
             console.log(localStorage);
@@ -13,13 +14,17 @@ const storage = {
     },
 };
 
+
 const state = {
-    todoItems: storage.fetch(),
-    price: 100
+    todoItems: storage.initiate(),
+    price: 100,
 }
 const getters = {
     fetchedTodoItems (state) {
         return state.todoItems;
+    },
+    getRecItems(state) {
+        return state.recitems;
     },
     oprice (state){
         return state.price;
